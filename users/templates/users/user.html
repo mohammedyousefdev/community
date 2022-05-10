@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+            <div class="col-sm-10 ">
+                <h1>Uzbek Community | {{profile.first_name}}  {{profile.last_name}}</h1>
+                <hr class="m-0">
+                <div class="card mt-3 p-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <img style="width: 100%; border-radius: 10px;" class="mb-2" src="{{profile.picture.url}}" alt="">
+                            <div class="name m-0 h4 text-center">
+                                {{profile.first_name}}  {{profile.last_name}}
+                            </div> 
+                            <div class="m-0 text-center text-muted">
+                                Javoblar soni : {{rating}}
+                            </div>
+                        </div>
+                        <div class="col-4 p-3 pt-5">
+                            <div>
+                                <div>
+                                    Login : {% if profile.user.username %} {{profile.user.username}} {% else %} Kiritilmagan {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                Ism : {% if profile.first_name %} {{profile.first_name}} {% else %} Kiritilmagan {% endif %}
+                            </div>
+                            <div>
+                                Familiya : {% if profile.last_name %} {{profile.last_name}} {% else %} Kiritilmagan {% endif %}
+                            </div>
+                            <div>
+                                E-mail : {% if profile.email %} {{profile.email}} {% else %} Kiritilmagan {% endif %}
+                            </div>
+                            <div>
+                                 {% if profile.telegram %} <a href="{{profile.telegram}}">Telegram</a> {% endif %}
+                                 {% if profile.instagram %} <a href="{{profile.instagram}}">Instagram</a> {% endif %}
+                                 {% if profile.facebook %} <a href="{{profile.facebook}}">Facebook</a> {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-5 p-3 pt-5">
+                            <div>
+                                Bio : {% if profile.bio %} {{profile.bio}} {% else %} Kiritilmagan {% endif %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+{% endblock content %}

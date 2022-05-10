@@ -1,0 +1,21 @@
+div::before{
+    content: "HTML ni o'rganamiz";
+    background-color: black;
+    color: white;
+}
+
+div::after {
+    content: "BU AFTER";
+    background-color: black;
+    color: white;
+}
+
+div::selection {
+    background-color: aqua;
+    color: red;
+}
+
+input::placeholder {
+    color: red;
+    letter-spacing: 5px;
+}

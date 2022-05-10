@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+            <div class="col-sm-10 ">
+                <h1>Uzbek Community | {% if answer %}Javoblarim {% else %} Savollarim {% endif %}</h1>
+                <hr class="m-0">
+                <div class="card mt-3 p-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% if questions %}
+                            {% for q in questions %}
+                            <div class="question mb-3">
+                                <div class="h4 text-dark m-0">{{q.title}}</div>
+                                <span class="text-muted">
+                                    {{q.created}} | Javoblar soni : {{q.reply_set.count}}
+                                </span>
+                                <div class="q-content border-start border-3">
+                                    <div class="m-3 mt-0 mb-0">
+                                        {{q.content|slice:"300"|safe}}...
+                                    </div>
+                                </div>
+                                <a href="{% url 'question' q.id %}" class="text-right">Batafsil o'qish</a>
+                            </div>
+
+                            <hr>
+                            {% endfor %}
+                            {% else %}                  
+                            <div class="h4 text-dark">
+                                Hozircha sizda {% if answer %}javoblar {% else %} savollar {% endif %} mavjud emas
+                            </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+{% endblock content %}
